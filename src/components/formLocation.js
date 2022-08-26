@@ -4,12 +4,12 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Form } from 'react-bootstrap';
 import styles from './formLocation.module.scss';
-import moveFrom from '../assets/moveFrom.svg';
-import moveTo from '../assets/moveTo.svg';
+// import moveFrom from '../assets/moveFrom.svg';
+// import moveTo from '../assets/moveTo.svg';
 // import Map from '../assets/map.png';
 import { Country, State, City } from 'country-state-city';
 
-const FormLocation = () => {
+const FormLocation = ({ icon, children }) => {
   const [location, setLocation] = useState({
     countryCode: '',
     stateCode: '',
@@ -23,8 +23,8 @@ const FormLocation = () => {
   return (
     <div className={styles.formLocation}>
       <div className={styles.formLabel}>
-        <img src={moveFrom} alt="move from" />
-        <label>Moving From</label>
+        <img src={icon} alt="move " />
+        <label>Moving {children}</label>
       </div>
       <div className={styles.autoCompleteForm}>
         <Autocomplete

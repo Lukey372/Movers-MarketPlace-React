@@ -1,5 +1,4 @@
 /* eslint-disable*/
-import React, { useEffect } from 'react';
 import SecondFooter from '../components/secondFooter';
 import HrLine from '../components/hrLine';
 import styles from './location.module.scss';
@@ -7,9 +6,8 @@ import FormLocation from '../components/formLocation';
 import InfoForm from '../components/infoForm';
 import { Row, Col, Button } from 'react-bootstrap';
 import backArrow from '../assets/backArrow.svg';
-import { useFormik } from 'formik';
-import Select from 'react-select';
-
+import moveFrom from '../assets/moveFrom.svg';
+import moveTo from '../assets/moveTo.svg';
 
 const Location = (props) => {
   const Continue = (e) => {
@@ -29,8 +27,8 @@ const Location = (props) => {
         <HrLine width="50px" />
 
         <div className={styles.maps}>
-          <FormLocation />
-          <FormLocation />
+          <FormLocation icon={moveFrom}>From</FormLocation>
+          <FormLocation icon={moveTo}>To</FormLocation>
         </div>
         <InfoForm />
         <Row className="mt-5" style={{ margin: '0 -15px' }}>
