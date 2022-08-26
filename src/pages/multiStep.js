@@ -15,7 +15,7 @@ const MultiStep = () => {
   };
   switch (step) {
     case 0:
-      return <Home nextStep={nextStep} />;
+      return <Location nextStep={nextStep} prevStep={prevStep} />;
     case 1:
       return <MyItems nextStep={nextStep} />;
     case 2:

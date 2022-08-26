@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React from 'react';
-import './home.css';
+import './home.scss';
 import homeImages from '../assets/imagePaths';
 import Partner from '../assets/assetsHome/partner.png';
 import FreeShippingPana from '../assets/assetsHome/Free-shipping-pana.png';
@@ -19,16 +20,18 @@ const Home = ({ nextStep }) => {
         </span>
         <ul className="nav__list">
           <li className="nav__list__item">
-            <a>Home</a>
+            <a href="#">Home</a>
           </li>
           <li className="nav__list__item">
-            <a onClick={Continue}>Services</a>
+            <a href="#" onClick={Continue}>
+              Services
+            </a>
           </li>
           <li className="nav__list__item">
-            <a>About Us</a>
+            <a href="#">About Us</a>
           </li>
           <li className="nav__list__item">
-            <a>Contact Us</a>
+            <a href="#">Contact Us</a>
           </li>
         </ul>
         <div className="nav__icons">
@@ -36,7 +39,11 @@ const Home = ({ nextStep }) => {
             <img src={homeImages.langLogo} />
           </span>
           <span>
-            <img className="nav__icons__2" src={homeImages.humbergerIcon} />
+            <img
+              className="nav__icons__2"
+              src={homeImages.humbergerIcon}
+              alt=""
+            />
           </span>
           <span></span>
         </div>
@@ -199,22 +206,22 @@ const Home = ({ nextStep }) => {
 
         <ul className="partner__logos">
           <li>
-            <img src={homeImages.partnerLogo} />
+            <img src={homeImages.partnerLogo} alt="ads" />
           </li>
           <li>
-            <img src={homeImages.partnerLogo2} />
+            <img src={homeImages.partnerLogo2} alt="sads" />
           </li>
           <li>
-            <img src={homeImages.partnerLogo3} alt="partner logo3" />
+            <img src={homeImages.partnerLogo3} alt="partner " />
           </li>
           <li>
-            <img src={homeImages.partnerLogo4} alt="partnerLogo4" />
+            <img src={homeImages.partnerLogo4} alt="partnero4" />
           </li>
           <li>
-            <img src={homeImages.partnerLogo5} alt="partner logo 5" />
+            <img src={homeImages.partnerLogo5} alt="partner 5" />
           </li>
           <li>
-            <img src={homeImages.partnerLogo3} alt="partner logo3" />
+            <img src={homeImages.partnerLogo3} alt="partner s3" />
           </li>
         </ul>
       </section>
@@ -250,7 +257,7 @@ const Home = ({ nextStep }) => {
           </div>
           <div className="quotes__quote">
             <div className="quotes__quote__icon">
-              <img src={homeImages.quote3} alt="quotes" />
+              <img src={homeImages.quote3} alt="quotess" />
             </div>
             <div className="quotes__quote__content">
               <h3>Moving Serivces</h3>
@@ -262,7 +269,7 @@ const Home = ({ nextStep }) => {
           </div>
           <div className="quotes__quote">
             <div className="quotes__quote__icon">
-              <img src={homeImages.quote4} alt="quotes" />
+              <img src={homeImages.quote4} alt="quotesw" />
             </div>
             <div className="quotes__quote__content">
               <h3>Moving Serivces</h3>
@@ -365,13 +372,13 @@ const Home = ({ nextStep }) => {
 
           <ul>
             <li>
-              <img src={homeImages.facebook} alt="Facebook icon" />
+              <img src={homeImages.facebook} alt="Facebook" />
             </li>
             <li>
-              <img src={homeImages.twitter} alt="twitter icon" />
+              <img src={homeImages.twitter} alt="twitter " />
             </li>
             <li>
-              <img src={homeImages.youtube} alt="youtube icon" />
+              <img src={homeImages.youtube} alt="youtube" />
             </li>
           </ul>
         </div>

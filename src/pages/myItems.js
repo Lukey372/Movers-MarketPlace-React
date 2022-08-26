@@ -1,5 +1,5 @@
 import React from 'react';
-import './myItems.css';
+import './myItems.scss';
 import Boxs from '../components/boxs';
 import SecondFooter from '../components/secondFooter';
 import { Button } from 'react-bootstrap';

@@ -44,7 +44,7 @@ const InfoForm = () => {
             />
             <label
               className="form-check-label fw-bold"
-              for="flexSwitchCheckDefault"
+              htmlFor="flexSwitchCheckDefault"
             >
               Would You Like To Add Storage?
             </label>
