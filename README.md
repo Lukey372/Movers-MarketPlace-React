@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Movers-MarketPlace-blueviolet)
+![](https://img.shields.io/badge/Movers-MarketPlace-blueviolet) ![](https://img.shields.io/badge/Movers-v1.0-yellow)
 # Movers Market Place
 
 ## Built With
