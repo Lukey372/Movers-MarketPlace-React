@@ -40,7 +40,7 @@ const Location = (props) => {
     f_State: '',
     f_City: '',
     f_Floor: '',
-    f_street: '',
+    f_Street: '',
     t_CountryCode: '',
     t_StateCode: '',
     t_Lat: '',
@@ -49,7 +49,7 @@ const Location = (props) => {
     t_State: '',
     t_City: '',
     t_Floor: '',
-    t_street: '',
+    t_Street: '',
     phone: '',
     info: '',
   });
@@ -221,7 +221,9 @@ const Location = (props) => {
                     required
                     id="outlined-required"
                     label="Street number"
-                    defaultValue=""
+                    value={location.f_Street}
+                    name="f_Street"
+                    onChange={handleInfoChange}
                   />
                   <FormControl required={true} sx={{ m: 1, minWidth: 130 }}>
                     <InputLabel id="demo-simple-select-helper-label">
@@ -398,7 +400,9 @@ const Location = (props) => {
                     required
                     id="outlined-required"
                     label="Street number"
-                    defaultValue=""
+                    value={location.t_Street}
+                    name="t_Street"
+                    onChange={handleInfoChange}
                   />
                   <FormControl required={true} sx={{ m: 1, minWidth: 130 }}>
                     <InputLabel id="demo-simple-select-helper-label">
