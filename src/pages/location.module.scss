@@ -4,7 +4,12 @@
 
   .maps {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 3px dashed var(--p-color);
   }
 }
 
+input::placeholder {
+  color: red;
+}

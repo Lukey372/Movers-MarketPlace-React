@@ -2,14 +2,21 @@ import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import Select from '@mui/material/Select';
 import { Form } from 'react-bootstrap';
 import styles from './formLocation.module.scss';
-// import moveFrom from '../assets/moveFrom.svg';
-// import moveTo from '../assets/moveTo.svg';
-// import Map from '../assets/map.png';
 import { Country, State, City } from 'country-state-city';
 
 const FormLocation = ({ icon, children }) => {
+  const [age, setAge] = useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   const [location, setLocation] = useState({
     countryCode: '',
     stateCode: '',
@@ -19,7 +26,11 @@ const FormLocation = ({ icon, children }) => {
     state: '',
     city: '',
   });
-  useEffect(() => {}, [location.country, location.state, location.city]);
+  useEffect(() => {
+    console.log(
+      City.getCitiesOfState(location.countryCode, location.stateCode)
+    );
+  }, [location.country, location.state, location.city]);
   return (
     <div className={styles.formLocation}>
       <div className={styles.formLabel}>
@@ -39,7 +50,7 @@ const FormLocation = ({ icon, children }) => {
             }))
           }
           id="country-select-demo"
-          sx={{ width: 250 }}
+          sx={{ width: 230 }}
           options={Country.getAllCountries()}
           autoHighlight
           getOptionLabel={(option) => option.name}
@@ -61,6 +72,7 @@ const FormLocation = ({ icon, children }) => {
           )}
           renderInput={(params) => (
             <TextField
+              required
               {...params}
               label="Choose a country"
               inputProps={{
@@ -73,6 +85,8 @@ const FormLocation = ({ icon, children }) => {
 
         {State.getStatesOfCountry(location.countryCode).length > 0 ? (
           <Autocomplete
+            disableClearable
+            className=" w3-animate-left"
             style={styleAutocomplete.bgWhite}
             onChange={(event, { isoCode, name }) =>
               setLocation((prev) => ({
@@ -82,7 +96,7 @@ const FormLocation = ({ icon, children }) => {
               }))
             }
             id="state-select-demo"
-            sx={{ width: 250 }}
+            sx={{ width: 230 }}
             options={State.getStatesOfCountry(location.countryCode)}
             autoHighlight
             getOptionLabel={(option) => option.name}
@@ -97,6 +111,7 @@ const FormLocation = ({ icon, children }) => {
             )}
             renderInput={(params) => (
               <TextField
+                required
                 {...params}
                 label="Choose a state"
                 inputProps={{
@@ -109,7 +124,8 @@ const FormLocation = ({ icon, children }) => {
         ) : (
           ''
         )}
-        {City.getCitiesOfState(location.countryCode, location.stateCode) > 0 ? (
+        {City.getCitiesOfState(location.countryCode, location.stateCode)
+          .length > 0 ? (
           <Autocomplete
             onChange={(event, { name, latitude, longitude }) =>
               setLocation((prev) => ({
@@ -121,7 +137,7 @@ const FormLocation = ({ icon, children }) => {
             }
             style={styleAutocomplete.bgWhite}
             id="city-select-demo"
-            sx={{ width: 250 }}
+            sx={{ width: 230 }}
             options={City.getCitiesOfState(
               location.countryCode,
               location.stateCode
@@ -153,19 +169,34 @@ const FormLocation = ({ icon, children }) => {
         )}
       </div>
       <div className={styles.formGroup}>
-        <Form.Control
-          size="lg"
-          type="text"
-          className={styles.customBtn}
-          placeholder="Street number"
+        <TextField
+          sx={{ width: 230 }}
+          style={styleAutocomplete.bgWhiteWithoutMargin}
+          required
+          id="outlined-required"
+          label="Street number"
+          defaultValue=""
         />
-        <Form.Select aria-label="Default select example">
-          <option>Floor number</option>
-          <option value="1">1st</option>
-          <option value="2">2nd</option>
-          <option value="3">3rd</option>
-          <option value="4">4th</option>
-        </Form.Select>
+        <FormControl sx={{ m: 1, minWidth: 130 }}>
+          <InputLabel id="demo-simple-select-helper-label">Floor No</InputLabel>
+          <Select
+            required
+            style={styleAutocomplete.bgWhiteWithoutMargin}
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            value={age}
+            label="Floor No."
+            onChange={handleChange}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={1}>1st</MenuItem>
+            <MenuItem value={2}>2nd</MenuItem>
+            <MenuItem value={3}>3rd</MenuItem>
+            <MenuItem value={4}>3th</MenuItem>
+          </Select>
+        </FormControl>
       </div>
     </div>
   );
@@ -175,6 +206,9 @@ const styleAutocomplete = {
   bgWhite: {
     backgroundColor: ' #fff',
     margin: '20px 0',
+  },
+  bgWhiteWithoutMargin: {
+    backgroundColor: ' #fff',
   },
 };
 

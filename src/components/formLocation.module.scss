@@ -1,6 +1,5 @@
 .formLocation {
   padding-top: 30px;
-  border-bottom: 3px dashed var(--p-color);
   .formLabel {
     display: flex;
     align-items: center;
@@ -14,20 +13,6 @@
   .formGroup {
     display: flex;
     gap: 15px;
-    padding: 10px 0;
-    .customBtn {
-      width: 250px;
-      height: 61.75px;
-      font-size: 15px;
-    }
-
-    Select {
-      width: fit-content;
-    }
-  }
-
-  .mapImage {
-    width: 100%;
-    margin-left: -6%;
+    align-items: center;
   }
 }

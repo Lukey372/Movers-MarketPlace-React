@@ -26,10 +26,18 @@ const Location = (props) => {
         <h3>Enter the details of your move</h3>
         <HrLine width="50px" />
 
-        <div className={styles.maps}>
-          <FormLocation icon={moveFrom}>From</FormLocation>
-          <FormLocation icon={moveTo}>To</FormLocation>
-        </div>
+        <Row className={styles.maps}>
+          <Col>
+            <FormLocation icon={moveFrom}>From</FormLocation>
+          </Col>
+          <Col
+            xs={1}
+            style={{ width: '5px', borderLeft: ' 3px dashed #bbb' }}
+          ></Col>
+          <Col>
+            <FormLocation icon={moveTo}>To</FormLocation>
+          </Col>
+        </Row>
         <InfoForm />
         <Row className="mt-5" style={{ margin: '0 -15px' }}>
           <Col xs={6} sm={4}>
@@ -38,6 +46,7 @@ const Location = (props) => {
               Inventory
             </Button>
           </Col>
+
           <Col xs={6} sm={{ span: 4, offset: 4 }}>
             <Button
               onClick={Continue}
