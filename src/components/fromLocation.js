@@ -5,18 +5,12 @@ import Autocomplete from '@mui/material/Autocomplete';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
 import Select from '@mui/material/Select';
 import { Form } from 'react-bootstrap';
 import styles from './formLocation.module.scss';
 import { Country, State, City } from 'country-state-city';
 
 const FormLocation = ({ icon, children }) => {
-  const [age, setAge] = useState('');
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
   const [location, setLocation] = useState({
     countryCode: '',
     stateCode: '',
@@ -25,12 +19,18 @@ const FormLocation = ({ icon, children }) => {
     country: '',
     state: '',
     city: '',
+    floor: '',
   });
-  useEffect(() => {
-    console.log(
-      City.getCitiesOfState(location.countryCode, location.stateCode)
-    );
-  }, [location.country, location.state, location.city]);
+
+  const handleChange = (event) => {
+    setLocation((prev) => ({
+      ...prev,
+      floor: event.target.value,
+    }));
+  };
+  // useEffect(() => {
+    // console.log(location);
+  // }, []);
   return (
     <div className={styles.formLocation}>
       <div className={styles.formLabel}>
@@ -60,13 +60,7 @@ const FormLocation = ({ icon, children }) => {
               sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
               {...props}
             >
-              <img
-                loading="lazy"
-                width="20"
-                src={`https://flagcdn.com/w20/${option.isoCode.toLowerCase()}.png`}
-                srcSet={`https://flagcdn.com/w40/${option.isoCode.toLowerCase()}.png 2x`}
-                alt=""
-              />
+              <span style={{ paddingRight: '10px' }}>{option.flag}</span>
               {option.name} ({option.isoCode})
             </Box>
           )}
@@ -127,6 +121,7 @@ const FormLocation = ({ icon, children }) => {
         {City.getCitiesOfState(location.countryCode, location.stateCode)
           .length > 0 ? (
           <Autocomplete
+            className=" w3-animate-left"
             onChange={(event, { name, latitude, longitude }) =>
               setLocation((prev) => ({
                 ...prev,
@@ -177,24 +172,20 @@ const FormLocation = ({ icon, children }) => {
           label="Street number"
           defaultValue=""
         />
-        <FormControl sx={{ m: 1, minWidth: 130 }}>
+        <FormControl required={true} sx={{ m: 1, minWidth: 130 }}>
           <InputLabel id="demo-simple-select-helper-label">Floor No</InputLabel>
           <Select
-            required
             style={styleAutocomplete.bgWhiteWithoutMargin}
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
-            value={age}
+            value={location.floor}
             label="Floor No."
             onChange={handleChange}
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
             <MenuItem value={1}>1st</MenuItem>
             <MenuItem value={2}>2nd</MenuItem>
             <MenuItem value={3}>3rd</MenuItem>
-            <MenuItem value={4}>3th</MenuItem>
+            <MenuItem value={4}>4th</MenuItem>
           </Select>
         </FormControl>
       </div>

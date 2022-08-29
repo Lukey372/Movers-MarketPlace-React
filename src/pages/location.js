@@ -2,7 +2,8 @@
 import SecondFooter from '../components/secondFooter';
 import HrLine from '../components/hrLine';
 import styles from './location.module.scss';
-import FormLocation from '../components/formLocation';
+import FormLocation from '../components/fromLocation';
+import ToLocation from '../components/toLocation';
 import InfoForm from '../components/infoForm';
 import { Row, Col, Button } from 'react-bootstrap';
 import backArrow from '../assets/backArrow.svg';
@@ -35,7 +36,7 @@ const Location = (props) => {
             style={{ width: '5px', borderLeft: ' 3px dashed #bbb' }}
           ></Col>
           <Col>
-            <FormLocation icon={moveTo}>To</FormLocation>
+            <ToLocation icon={moveTo}>To</ToLocation>
           </Col>
         </Row>
         <InfoForm />
