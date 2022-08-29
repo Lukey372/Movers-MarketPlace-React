@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Form } from 'react-bootstrap';
-import styles from './formLocation.module.scss';
+import classes from './formLocation.module.scss';
 import { Country, State, City } from 'country-state-city';
 
 const FormLocation = ({ icon, children }) => {
@@ -29,19 +29,19 @@ const FormLocation = ({ icon, children }) => {
     }));
   };
   // useEffect(() => {
-    // console.log(location);
+  // console.log(location);
   // }, []);
   return (
-    <div className={styles.formLocation}>
-      <div className={styles.formLabel}>
+    <div className={classes.formLocation}>
+      <div className={classes.formLabel}>
         <img src={icon} alt="move " />
         <label>Moving {children}</label>
       </div>
-      <div className={styles.autoCompleteForm}>
+      <div className={classes.autoCompleteForm}>
         <Autocomplete
           disableClearable
           style={styleAutocomplete.bgWhite}
-          className={styles.autoComplete}
+          className={classes.autoComplete}
           onChange={(event, { isoCode, name }) =>
             setLocation((prev) => ({
               ...prev,
@@ -163,7 +163,7 @@ const FormLocation = ({ icon, children }) => {
           ''
         )}
       </div>
-      <div className={styles.formGroup}>
+      <div className={classes.formGroup}>
         <TextField
           sx={{ width: 230 }}
           style={styleAutocomplete.bgWhiteWithoutMargin}
