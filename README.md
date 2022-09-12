@@ -14,6 +14,7 @@
 - Technologies used
 ```
 - react-bootstrap
+- Material UI
 - sass
 ```
 
